@@ -9,11 +9,26 @@
 </head>
 
 <body style="text-align:left;">
+<script>
+var StarCount = 0
+var StarHtml
+StarHtml = ""
+    function yelStar() {
+        StarCount = StarCount ++
+        for (CurrentStar = 0, delete(StarHtml); CurrentStar <= StarCount; CurrentStar++) {
+            StarHtml = StarHtml + "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>"
+        }
+        document.getElementById('Stars1').innerHTML = StarHtml
+    }
+</script>
 <div style="margin:15px">
 <h1>haiku post generator</h1>
 <p>simply select and edit text to change text content</p>
 <p>
 pfp: <input type="text" id="ProfilePicture" value="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png"> <button onclick="document.getElementById('img1').src = document.getElementById('ProfilePicture').value; document.getElementById('img2').src = document.getElementById('ProfilePicture').value;">change</button>
+</p>
+<p>
+<button onclick="yelStar()">add star</button>
 </p>
 <div class="streambody">
 <div class="tl-entry-list">
@@ -21,7 +36,7 @@ pfp: <input type="text" id="ProfilePicture" value="https://cdn.profile-image.st-
 	<div class="list-body" style="float:left;"><h2 class="title">
         <a href="#"><img src="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png" class="profile-image" width="16" height="16" id="img2"></a>
         <a class="title-anchor" href="#" contenteditable="true">GRAND CARZ</a>
-		<span class="hatena-star-comment-container"><img src="http://s.hatena.ne.jp/images/comment_gr.gif" tabindex="0" alt="Comments" title="Comments" style="cursor: pointer; margin: 0px; padding: 0px; border: medium none; vertical-align: middle; display: none;" class="hatena-star-comment-button"></span><span class="hatena-star-star-container"><img src="http://s.hatena.ne.jp/images/add_gr.gif" tabindex="0" alt="Add Star" title="Add Star" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: medium none; vertical-align: middle;" class="hatena-star-add-button"></span></h2>
+		<span class="hatena-star-comment-container"><img src="http://s.hatena.ne.jp/images/comment_gr.gif" tabindex="0" alt="Comments" title="Comments" style="cursor: pointer; margin: 0px; padding: 0px; border: medium none; vertical-align: middle; display: none;" class="hatena-star-comment-button"></span><span class="hatena-star-star-container"><img src="http://s.hatena.ne.jp/images/add_gr.gif" tabindex="0" alt="Add Star" title="Add Star" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: medium none; vertical-align: middle;" class="hatena-star-add-button"><span id="Stars1"></span></span></h2>
 
       <div class="body ">
 <div class="entry-body-content" contenteditable="true">
