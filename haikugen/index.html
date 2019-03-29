@@ -10,33 +10,90 @@
 
 <body style="text-align:left;">
 <script>
-var StarCount = 0
-var StarHtml
-StarHtml = ""
+var StarCount = 0;
+var GrnStarCount = 0;
+var RedStarCount = 0;
+var BluStarCount = 0;
+var PrpStarCount = 0;
+var StarHtml = "";
+var GrnStarHtml = "";
+var RedStarHtml = "";
+var BluStarHtml = "";
+var PrpStarHtml = "";
     function yelStar() {
-        StarCount = StarCount ++
-        for (CurrentStar = 0, delete(StarHtml); CurrentStar <= StarCount; CurrentStar++) {
-            StarHtml = StarHtml + "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>"
+        StarCount++;
+        if (StarCount < 10) {
+        for (CurrentStar = 1, StarHtml = ""; CurrentStar <= StarCount; CurrentStar++) {
+            StarHtml = StarHtml + "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>";
         }
-        document.getElementById('Stars1').innerHTML = StarHtml
+        } else {
+            StarHtml = "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'><span style=\"color:#f4b128;font-weight:bold;font-size:80%;margin:0 2px;\">" + StarCount + "</span><img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>";
+        };
+        document.getElementById('StarsY').innerHTML = StarHtml;
+    }
+    function grnStar() {
+        GrnStarCount++;
+        if (GrnStarCount < 10) {
+        for (CurrentGrnStar = 1, GrnStarHtml = ""; CurrentGrnStar <= GrnStarCount; CurrentGrnStar++) {
+            GrnStarHtml = GrnStarHtml + "<img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'>";
+        }
+        } else {
+            GrnStarHtml = "<img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'><span style=\"color:#8ed701;font-weight:bold;font-size:80%;margin:0 2px;\">" + GrnStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'>";
+        };
+        document.getElementById('StarsG').innerHTML = GrnStarHtml;
+    }
+    function redStar() {
+        RedStarCount++;
+        if (RedStarCount < 10) {
+        for (CurrentRedStar = 1, RedStarHtml = ""; CurrentRedStar <= RedStarCount; CurrentRedStar++) {
+            RedStarHtml = RedStarHtml + "<img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'>";
+        }
+        } else {
+            RedStarHtml = "<img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'><span style=\"color:#ea475c;font-weight:bold;font-size:80%;margin:0 2px;\">" + RedStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'>";
+        };
+        document.getElementById('StarsR').innerHTML = RedStarHtml;
+    }
+    function bluStar() {
+        BluStarCount++;
+        if (BluStarCount < 10) {
+        for (CurrentBluStar = 1, BluStarHtml = ""; CurrentBluStar <= BluStarCount; CurrentBluStar++) {
+            BluStarHtml = BluStarHtml + "<img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'>";
+        }
+        } else {
+            BluStarHtml = "<img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'><span style=\"color:#57b1ff;font-weight:bold;font-size:80%;margin:0 2px;\">" + BluStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'>";
+        };
+        document.getElementById('StarsB').innerHTML = BluStarHtml;
+    }
+    function prpStar() {
+        PrpStarCount++;
+        if (PrpStarCount < 10) {
+        for (CurrentPrpStar = 1, PrpStarHtml = ""; CurrentPrpStar <= PrpStarCount; CurrentPrpStar++) {
+            PrpStarHtml = PrpStarHtml + "<img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'>";
+        }
+        } else {
+            PrpStarHtml = "<img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'><span style=\"color:#cd34e3;font-weight:bold;font-size:80%;margin:0 2px;\">" + PrpStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'>";
+        };
+        document.getElementById('StarsP').innerHTML = PrpStarHtml;
     }
 </script>
 <div style="margin:15px">
 <h1>haiku post generator</h1>
 <p>simply select and edit text to change text content</p>
+<hr>
 <p>
 pfp: <input type="text" id="ProfilePicture" value="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png"> <button onclick="document.getElementById('img1').src = document.getElementById('ProfilePicture').value; document.getElementById('img2').src = document.getElementById('ProfilePicture').value;">change</button>
 </p>
 <p>
-<button onclick="yelStar()">add star</button>
+<button onclick="yelStar()">add star</button><button onclick="grnStar()">add green star</button><button onclick="redStar()">add red star</button><button onclick="bluStar()">add blue star</button><button onclick="prpStar()">add purple star</button>
 </p>
+<hr>
 <div class="streambody">
 <div class="tl-entry-list">
 <div class="entry tl-entry"><div class="list-image" style="float:left;margin-right:10px"><a href="#"><img src="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png" class="profile-image" width="32" height="32" style="padding:1px;border-style:solid;border-color:#ccc;border-width:1px;" id="img1"></a></div>
 	<div class="list-body" style="float:left;"><h2 class="title">
         <a href="#"><img src="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png" class="profile-image" width="16" height="16" id="img2"></a>
         <a class="title-anchor" href="#" contenteditable="true">GRAND CARZ</a>
-		<span class="hatena-star-comment-container"><img src="http://s.hatena.ne.jp/images/comment_gr.gif" tabindex="0" alt="Comments" title="Comments" style="cursor: pointer; margin: 0px; padding: 0px; border: medium none; vertical-align: middle; display: none;" class="hatena-star-comment-button"></span><span class="hatena-star-star-container"><img src="http://s.hatena.ne.jp/images/add_gr.gif" tabindex="0" alt="Add Star" title="Add Star" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: medium none; vertical-align: middle;" class="hatena-star-add-button"><span id="Stars1"></span></span></h2>
+		<span class="hatena-star-comment-container"><img src="http://s.hatena.ne.jp/images/comment_gr.gif" tabindex="0" alt="Comments" title="Comments" style="cursor: pointer; margin: 0px; padding: 0px; border: medium none; vertical-align: middle; display: none;" class="hatena-star-comment-button"></span><span class="hatena-star-star-container"><img src="http://s.hatena.ne.jp/images/add_gr.gif" tabindex="0" alt="Add Star" title="Add Star" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: medium none; vertical-align: middle;" class="hatena-star-add-button"><span id="StarsP"></span><span id="StarsB"></span><span id="StarsR"></span><span id="StarsG"></span><span id="StarsY"></span></span></h2>
 
       <div class="body ">
 <div class="entry-body-content" contenteditable="true">
@@ -59,4 +116,3 @@ pfp: <input type="text" id="ProfilePicture" value="https://cdn.profile-image.st-
 </div>
 </div>
 </body>
-</div>
