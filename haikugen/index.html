@@ -10,70 +10,21 @@
 
 <body style="text-align:left;">
 <script>
-var StarCount = 0;
-var GrnStarCount = 0;
-var RedStarCount = 0;
-var BluStarCount = 0;
-var PrpStarCount = 0;
-var StarHtml = "";
-var GrnStarHtml = "";
-var RedStarHtml = "";
-var BluStarHtml = "";
-var PrpStarHtml = "";
-    function yelStar() {
-        StarCount++;
-        if (StarCount < 10) {
-        for (CurrentStar = 1, StarHtml = ""; CurrentStar <= StarCount; CurrentStar++) {
-            StarHtml = StarHtml + "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>";
+var StarCount = [0, 0, 0, 0, 0];
+var StarImg = ['https://s.hatena.ne.jp/images/star.gif', 'https://s.hatena.ne.jp/images/star-green.gif', 'https://s.hatena.ne.jp/images/star-red.gif', 'https://s.hatena.ne.jp/images/star-blue.gif', 'https://s.hatena.ne.jp/images/star-purple.gif'];
+var StarHtml = ["", "", "", "", ""];
+var StarColour = ["#f4b128", "#8ed701", "#ea475c", "#57b1ff", "#cd34e3"];
+var StarElement = ["StarsY", "StarsG", "StarsR", "StarsB", "StarsP"];
+    function Star(sc) {
+        StarCount[sc]++;
+        if (StarCount[sc] < 10) {
+        for (CurrentStar = 1, StarHtml[sc] = ""; CurrentStar <= StarCount[sc]; CurrentStar++) {
+            StarHtml[sc] = StarHtml[sc] + "<img src='" + StarImg[sc] + "' style='padding:0;margin:0;'>";
         }
         } else {
-            StarHtml = "<img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'><span style=\"color:#f4b128;font-weight:bold;font-size:80%;margin:0 2px;\">" + StarCount + "</span><img src='https://s.hatena.ne.jp/images/star.gif' style='padding:0;margin:0;'>";
+            StarHtml[sc] = "<img src='" + StarImg[sc] + "' style='padding:0;margin:0;'><span style=\"color:" + StarColour[sc] + ";font-weight:bold;font-size:80%;margin:0 2px;\">" + StarCount[sc] + "</span><img src='" + StarImg[sc] + "' style='padding:0;margin:0;'>";
         };
-        document.getElementById('StarsY').innerHTML = StarHtml;
-    }
-    function grnStar() {
-        GrnStarCount++;
-        if (GrnStarCount < 10) {
-        for (CurrentGrnStar = 1, GrnStarHtml = ""; CurrentGrnStar <= GrnStarCount; CurrentGrnStar++) {
-            GrnStarHtml = GrnStarHtml + "<img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'>";
-        }
-        } else {
-            GrnStarHtml = "<img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'><span style=\"color:#8ed701;font-weight:bold;font-size:80%;margin:0 2px;\">" + GrnStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-green.gif' style='padding:0;margin:0;'>";
-        };
-        document.getElementById('StarsG').innerHTML = GrnStarHtml;
-    }
-    function redStar() {
-        RedStarCount++;
-        if (RedStarCount < 10) {
-        for (CurrentRedStar = 1, RedStarHtml = ""; CurrentRedStar <= RedStarCount; CurrentRedStar++) {
-            RedStarHtml = RedStarHtml + "<img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'>";
-        }
-        } else {
-            RedStarHtml = "<img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'><span style=\"color:#ea475c;font-weight:bold;font-size:80%;margin:0 2px;\">" + RedStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-red.gif' style='padding:0;margin:0;'>";
-        };
-        document.getElementById('StarsR').innerHTML = RedStarHtml;
-    }
-    function bluStar() {
-        BluStarCount++;
-        if (BluStarCount < 10) {
-        for (CurrentBluStar = 1, BluStarHtml = ""; CurrentBluStar <= BluStarCount; CurrentBluStar++) {
-            BluStarHtml = BluStarHtml + "<img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'>";
-        }
-        } else {
-            BluStarHtml = "<img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'><span style=\"color:#57b1ff;font-weight:bold;font-size:80%;margin:0 2px;\">" + BluStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-blue.gif' style='padding:0;margin:0;'>";
-        };
-        document.getElementById('StarsB').innerHTML = BluStarHtml;
-    }
-    function prpStar() {
-        PrpStarCount++;
-        if (PrpStarCount < 10) {
-        for (CurrentPrpStar = 1, PrpStarHtml = ""; CurrentPrpStar <= PrpStarCount; CurrentPrpStar++) {
-            PrpStarHtml = PrpStarHtml + "<img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'>";
-        }
-        } else {
-            PrpStarHtml = "<img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'><span style=\"color:#cd34e3;font-weight:bold;font-size:80%;margin:0 2px;\">" + PrpStarCount + "</span><img src='https://s.hatena.ne.jp/images/star-purple.gif' style='padding:0;margin:0;'>";
-        };
-        document.getElementById('StarsP').innerHTML = PrpStarHtml;
+        document.getElementById(StarElement[sc]).innerHTML = StarHtml[sc];
     }
 </script>
 <div style="margin:15px">
@@ -84,7 +35,7 @@ var PrpStarHtml = "";
 pfp: <input type="text" id="ProfilePicture" value="https://cdn.profile-image.st-hatena.com/users/Carz/profile.png"> <button onclick="document.getElementById('img1').src = document.getElementById('ProfilePicture').value; document.getElementById('img2').src = document.getElementById('ProfilePicture').value;">change</button>
 </p>
 <p>
-<button onclick="yelStar()">add star</button><button onclick="grnStar()">add green star</button><button onclick="redStar()">add red star</button><button onclick="bluStar()">add blue star</button><button onclick="prpStar()">add purple star</button>
+<button onclick="Star(0)">add star</button><button onclick="Star(1)">add green star</button><button onclick="Star(2)">add red star</button><button onclick="Star(3)">add blue star</button><button onclick="Star(4)">add purple star</button>
 </p>
 <hr>
 <div class="streambody">
